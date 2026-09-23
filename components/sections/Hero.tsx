@@ -26,11 +26,14 @@ export function Hero({ image, logoSrc }: HeroProps) {
             ZERE balabakshasy
           </span>
 
-          <h1 className="mt-6 text-[2.5rem] leading-[1.08] font-extrabold tracking-tight text-forest sm:text-6xl lg:text-[4.25rem]">
-            Баланың бақытты балалық шағы осы жерден басталады
+          <h1 className="mt-6 max-w-xl text-[2.375rem] leading-[1.1] font-extrabold tracking-tight text-forest sm:text-5xl lg:text-[3.5rem]">
+            Бақытты балалықтың мекені
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed font-semibold text-ink/85 sm:text-xl">
+            Әр балаға мейірім, қамқорлық және дамуға арналған жайлы орта.
+          </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             2 жастан 6 жасқа дейінгі балаларға арналған қауіпсіз, жайлы және мейірімді орта.
           </p>
 
