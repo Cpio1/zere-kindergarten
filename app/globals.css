@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Палитра ZERE: спокойные натуральные зелёные + тёплый молочный фон
+   ------------------------------------------------------------------ */
+@theme {
+  --color-forest: #245c3a; /* тёмно-зелёный: заголовки, кнопки, footer */
+  --color-forest-deep: #1b4a2e; /* hover для тёмно-зелёного */
+  --color-leaf: #4f8a4c; /* натуральный зелёный */
+  --color-mint: #ddedd8; /* светло-зелёный */
+  --color-mint-soft: #eef6eb; /* очень светлый зелёный для подложек */
+  --color-cream: #faf8f1; /* основной фон */
+  --color-sand: #f3efe2; /* чуть темнее фона — заглушки фото */
+  --color-sun: #f2c94c; /* точечный жёлтый акцент */
+  --color-ink: #1e3326; /* основной текст */
+  --color-muted: #5b6b60; /* второстепенный текст */
+
+  --shadow-soft: 0 30px 60px -32px rgb(36 92 58 / 0.35);
+  --shadow-card: 0 12px 32px -20px rgb(36 92 58 / 0.28);
+  --shadow-card-hover: 0 28px 50px -26px rgb(36 92 58 / 0.4);
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* высота шапки, чтобы якоря не прятались под ней */
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-mint);
+    color: var(--color-forest);
+  }
+}
+
+/* Контейнер: 16px по бокам на телефоне */
+@utility container-x {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Мягкое появление блоков при прокрутке (см. components/ui/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
