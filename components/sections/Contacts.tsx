@@ -84,7 +84,7 @@ export function Contacts() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
-                className="h-[340px] w-full flex-1 rounded-[26px] border-0 sm:h-[420px] lg:min-h-[460px]"
+                className="h-[340px] w-full flex-1 rounded-[26px] border-0 sm:h-[450px]"
               />
               <a
                 href={mapLinkUrl}

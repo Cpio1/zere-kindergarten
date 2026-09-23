@@ -10,13 +10,14 @@ export const phone = "";
 export const documentsUrl = "#";
 
 /**
- * Адрес для карты. Если метка стоит неточно — добавьте город, например "Алматы, мкр. Рахат, 308".
- * Либо вставьте готовую ссылку в mapEmbedUrl
+ * Карта Google Maps по адресу.
+ * Если метка стоит неточно — добавьте город в mapQuery, например "Алматы мкр. Рахат 308",
+ * либо вставьте готовую ссылку в mapEmbedUrl
  * (Google Maps → «Поделиться» → «Встраивание карт» → скопировать src из iframe).
  */
-export const mapQuery = "мкр. Рахат, 308";
-export const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`;
-export const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+const mapQuery = "мкр.+Рахат+308";
+export const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+export const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
 export const site = {
   name: "ZERE balabakshasy",
