@@ -11,11 +11,11 @@ export const documentsUrl = "https://drive.google.com/drive/folders/10ZlYuE7zzzQ
 
 /**
  * Карта Google Maps по адресу.
- * Если метка стоит неточно — добавьте город в mapQuery, например "Алматы мкр. Рахат 308",
+ * Если метка стоит неточно — поправьте mapQuery,
  * либо вставьте готовую ссылку в mapEmbedUrl
  * (Google Maps → «Поделиться» → «Встраивание карт» → скопировать src из iframe).
  */
-const mapQuery = "мкр.+Рахат+308";
+const mapQuery = "Алматы,+мкр.+Рахат,+308";
 export const mapEmbedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
 export const mapLinkUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
@@ -24,6 +24,8 @@ export const site = {
   branch: "Филиал детский сад «Зере»",
   organization: "ТОО «Маткасым»",
   address: "мкр. Рахат, 308",
+  /** Полный адрес для раздела «Байланыс» */
+  fullAddress: "Алматы қаласы, Рахат ықшам ауданы, 308",
   hours: "07:30–18:00",
   instagram: {
     handle: "@zere_balabaksha",

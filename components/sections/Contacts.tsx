@@ -17,7 +17,7 @@ export function Contacts() {
     {
       icon: <MapPin className="h-6 w-6" />,
       label: "Мекенжай",
-      value: site.address,
+      value: site.fullAddress,
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -80,7 +80,7 @@ export function Contacts() {
             <div className="flex h-full flex-col overflow-hidden rounded-[32px] bg-white p-2 shadow-card ring-1 ring-forest/5">
               <iframe
                 src={mapEmbedUrl}
-                title={`Карта: ${site.address}`}
+                title={`Карта: ${site.fullAddress}`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
