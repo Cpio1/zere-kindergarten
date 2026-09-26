@@ -7,17 +7,17 @@ import type { GalleryImage } from "@/lib/content";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { cn } from "@/lib/cn";
 
-/** Сколько фото показывать до нажатия «Барлық фотосуреттер» */
-const INITIAL_COUNT = 9;
+/** Сколько фото показывать до нажатия «Барлығын көру» */
+const INITIAL_COUNT = 6;
 
 /**
- * Сетка: mobile — 2 колонки, desktop — 3. Плитки вертикальные (4:5) — так фото с телефона почти не обрезаются,
+ * Сетка: mobile и tablet — 2 колонки, desktop — 3. Плитки вертикальные (4:5) — так фото с телефона почти не обрезаются,
  * а object-position (по умолчанию верхняя треть) бережёт головы детей.
  * Широкие групповые фото можно растянуть на 2 колонки: imageOverrides в lib/content.ts → { wide: true }.
  * В режиме просмотра фото всегда показывается целиком.
  */
-const gridClass = "mt-14 grid grid-flow-dense grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:gap-5";
-const tileClass = "relative overflow-hidden rounded-[22px] sm:rounded-[28px]";
+const gridClass = "mt-14 grid grid-flow-dense grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-5";
+const tileClass = "relative overflow-hidden rounded-[22px] shadow-card sm:rounded-[28px]";
 const tileSize = (wide?: boolean) => (wide ? "col-span-2 aspect-[8/5]" : "aspect-[4/5]");
 
 /** Высоты заглушек, пока фото не добавлены */
@@ -79,14 +79,15 @@ export function GalleryGrid({ items }: { items: GalleryImage[] }) {
             className={cn(
               tileClass,
               tileSize(item.wide),
-              "group cursor-zoom-in bg-sand focus-visible:ring-4 focus-visible:ring-leaf/50 focus-visible:outline-none",
+              "group cursor-zoom-in bg-sand transition-shadow duration-500 hover:shadow-card-hover focus-visible:ring-4 focus-visible:ring-leaf/50 focus-visible:outline-none",
             )}
           >
             <Image
               src={item.src}
               alt={item.alt}
               fill
-              sizes={item.wide ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 50vw"}
+              sizes={item.wide ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 50vw"}
+              loading="lazy"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               style={{ objectPosition: item.position }}
             />
@@ -105,7 +106,7 @@ export function GalleryGrid({ items }: { items: GalleryImage[] }) {
             onClick={() => setShowAll((v) => !v)}
             className="group inline-flex h-14 items-center gap-2 rounded-full bg-white px-8 font-bold text-forest ring-1 ring-forest/15 transition-all duration-300 hover:-translate-y-0.5 hover:ring-forest/40"
           >
-            {showAll ? "Жасыру" : `Барлық фотосуреттер (${items.length})`}
+            {showAll ? "Жасыру" : "Барлығын көру"}
             <ChevronDown className={cn("h-5 w-5 transition-transform duration-300", showAll && "rotate-180")} />
           </button>
         </div>

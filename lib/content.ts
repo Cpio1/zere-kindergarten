@@ -50,7 +50,13 @@ export type GalleryImage = {
  * Необязательные настройки для конкретных фото: подпись и точка фокуса.
  * Пример: "/images/image3.jpg": { alt: "Таңғы жаттығу", position: "50% 15%", wide: true }
  */
-export const imageOverrides: Record<string, Partial<GalleryImage>> = {};
+export const imageOverrides: Record<string, Partial<GalleryImage>> = {
+  "/images/image1.jpeg": { alt: "Балабақша ауласында серуен", position: "50% 45%" },
+  "/images/image2.jpeg": { alt: "Тәрбиешімен дамытушы сабақ", position: "50% 25%" },
+  "/images/image3.jpeg": { alt: "Таңғы жаттығу", position: "50% 60%", wide: true },
+  "/images/image4.jpeg": { alt: "Білім күні", position: "50% 62%" },
+  "/images/image5.jpeg": { alt: "Ағылшын тілі сабағы", position: "50% 45%" },
+};
 
 export function toGalleryImage(src: string, index: number): GalleryImage {
   return { src, alt: `ZERE balabakshasy — фото ${index + 1}`, position: "50% 30%", ...imageOverrides[src] };
