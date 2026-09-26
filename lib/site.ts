@@ -4,7 +4,7 @@
  */
 
 /** Номер телефона, например "+7 777 123 45 67". Пока пусто — блок телефона на сайте не показывается. */
-export const phone = "";
+export const phone = "+7 700 818 0293";
 
 /** Ссылка на аттестационные документы (например, папка Google Drive). */
 export const documentsUrl = "https://drive.google.com/drive/folders/10ZlYuE7zzzQieeTANHjZsRxKKnnVfnoy";
