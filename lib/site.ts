@@ -7,7 +7,7 @@
 export const phone = "";
 
 /** Ссылка на аттестационные документы (например, папка Google Drive). */
-export const documentsUrl = "#";
+export const documentsUrl = "https://drive.google.com/drive/folders/10ZlYuE7zzzQieeTANHjZsRxKKnnVfnoy";
 
 /**
  * Карта Google Maps по адресу.
